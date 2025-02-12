@@ -2,7 +2,7 @@ import json
 import subprocess
 
 def git_push():
-    commit_message="Auto commit"
+    commit_message="auto-commit"
     try:
         # Ajouter tous les fichiers
         subprocess.run(["git", "add", "stat_global"], check=True)
