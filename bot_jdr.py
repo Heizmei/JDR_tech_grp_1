@@ -57,7 +57,7 @@ def regen(stats, value_HP, value_MP, parts):
     
 
 def main():
-    with open("stats.json", "r") as f:
+    with open("stat_global/stats.json", "r") as f:
         stats = json.load(f)
     stats_base = json.loads(json.dumps(stats))  # Copie profonde
     while True:
@@ -81,7 +81,7 @@ def main():
         if parts[0] == "fin_combat":
             stats = json.loads(json.dumps(stats_base))  # Reset stats
         
-        with open("stats.json", "w") as f:
+        with open("stat_global/stats.json", "w") as f:
                 json.dump(stats, f, indent=4)  # Sauvegarde dans le fichier
 
 
