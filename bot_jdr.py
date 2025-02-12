@@ -5,7 +5,7 @@ def git_push():
     commit_message="Auto commit"
     try:
         # Ajouter tous les fichiers
-        subprocess.run(["git", "add", "*"], check=True)
+        subprocess.run(["git", "add", "stat_global"], check=True)
 
         # Commit avec un message
         subprocess.run(["git", "commit", "-m", commit_message], check=True)
