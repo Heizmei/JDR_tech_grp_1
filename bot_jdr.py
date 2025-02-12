@@ -1,4 +1,22 @@
 import json
+import subprocess
+
+def git_push():
+    commit_message="Auto commit"
+    try:
+        # Ajouter tous les fichiers
+        subprocess.run(["git", "add", "*"], check=True)
+
+        # Commit avec un message
+        subprocess.run(["git", "commit", "-m", commit_message], check=True)
+
+        # Pousser vers le repo distant
+        subprocess.run(["git", "push"], check=True)
+
+        print("✅ Modification poussée avec succès !")
+
+    except subprocess.CalledProcessError as e:
+        print("❌ Une erreur est survenue :", e)
 
 def augment_lvl(stats):
 
@@ -55,6 +73,7 @@ def main():
             value_hp = ask_question_HP(5)
             value_mp = ask_question_MP(5)
             regen(stats, value_hp, value_mp, parts)
+            git_push()
 
         if parts[0] == "lvl_up":
              augment_lvl(stats)
