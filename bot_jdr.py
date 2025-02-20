@@ -60,9 +60,11 @@ def regen(stats, value_hp, value_mp):
     
     name = "your_name"
 
+def regen(stats, value_hp, value_mp):
     for name in stats["name"]:
-        stats["name"][name]["HP"] += value_hp
-        stats["name"][name]["MP"] += value_mp
+        stats["name"][name]["HP"] = min(stats["name"][name]["HP"] + value_hp, stats["name"][name]["MAX_HP"])
+        stats["name"][name]["MP"] = min(stats["name"][name]["MP"] + value_mp, stats["name"][name]["MAX_MP"])
+
 
 def main():
     with open("your_folder/stats.json", "r") as f:

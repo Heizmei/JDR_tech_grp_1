@@ -2,6 +2,7 @@
     "name": {
         "rosa": {
             "LVL": 0,
+            "MAX_HP":0,
             "HP": 5,
             "MP": 5,
             "int": 0,
