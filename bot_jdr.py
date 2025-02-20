@@ -49,7 +49,7 @@ def debuff(stats, parts):
     
     name = "your_name"
     
-    stat, valeur = parts[1], parts[2], parts[3]
+    name, stat, valeur = parts[1], parts[2], parts[3]
     if stat not in stats["name"][name]:
         print("❌ stat invalide !")
         return
@@ -76,6 +76,7 @@ def main():
         print("- lvl_up (Augmenter une stat lors d'un level-up)")
         print("- start_combat (Sauvegarde l'état des stats avant le combat)")
         print("- fin_combat (Restaure les stats sauvegardées avant le combat)")
+        print("- print (print your stat)")
         
         commande = input("Action ?\n: ").strip()
         parts = commande.split()
@@ -105,7 +106,7 @@ def main():
             stats = json.loads(json.dumps(stats_base))
             print("✅ Stats restaurées après le combat.")
         
-        with open("stat_global/stats.json", "w") as f:
+        with open("your_name/stats.json", "w") as f:
             json.dump(stats, f, indent=4)
         
 if __name__ == "__main__":
